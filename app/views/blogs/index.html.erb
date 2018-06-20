@@ -1,0 +1,21 @@
+<% if flash[:notice].present? %>
+    <%= flash[:notice] %>
+<% end %>
+<br/>
+<%= link_to "add new", new_blog_path %>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    <% @blogs.each do |blog| %>
+        <tr>
+            <td><%= blog.title %></td>
+            <td><%= blog.description %></td>
+            <td><%= link_to 'detail', blog_path(blog) %> | <%= link_to 'edit', edit_blog_path(blog) %> | <%= link_to 'delete', blog_path(blog), method: :delete, data: {confirm: "Bener mau hapus?"}  %> </td>
+        </tr>
+    <% end %>
+</table>
+
+<%= render 'info', popular_blog: 'Matamu matamu' %>
