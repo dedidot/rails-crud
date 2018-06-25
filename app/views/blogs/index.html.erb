@@ -1,8 +1,10 @@
-<% if flash[:notice].present? %>
-    <%= flash[:notice] %>
-<% end %>
+
 <br/>
 <%= link_to "add new", new_blog_path %>
+<br/>
+<% if current_user %>
+ Halo <%= current_user.name %>, <%= link_to "logout", session_path(current_user), method: :delete %>
+<% end %>
 <table>
     <tr>
         <th>Title</th>

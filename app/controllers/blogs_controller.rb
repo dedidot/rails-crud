@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 
+    before_action :user_signed_in?
+
     def new
         @blog = Blog.new
         @user = User.pluck(:name, :id)

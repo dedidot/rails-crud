@@ -11,6 +11,10 @@
 
   <body>
     <h1>Belajar ruby</h1>
+    <% if flash[:notice].present? %>
+      <%= flash[:notice] %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
